@@ -407,7 +407,7 @@ export default function BUSH4() {
 
       case 'delete':
         const { error: deleteError } = await supabase
-          .from('mdr_tracking')
+          .from('mdr_tracking_tbk')
           .delete()
           .in('id', selectedRows);
 
@@ -424,7 +424,7 @@ export default function BUSH4() {
 
       case 'archived':
         const { error: archivedError } = await supabase
-          .from('mdr_tracking')
+          .from('mdr_tracking_tbk')
           .update({ archived: true })
           .in('id', selectedRows);
 
@@ -498,7 +498,7 @@ export default function BUSH4() {
 
     while (moreData) {
       const { data, error } = await supabase
-        .from('mdr_tracking')
+        .from('mdr_tracking_tbk')
         .select('*')
         .eq('archived', false)
         .order('date_in', { ascending: false })
@@ -637,7 +637,7 @@ export default function BUSH4() {
 
     // 🔹 Update ke Supabase
     const { error } = await supabase
-      .from('mdr_tracking')
+      .from('mdr_tracking_tbk')
       .update(updates)
       .eq('id', id);
 
@@ -658,7 +658,7 @@ export default function BUSH4() {
       setNotification(null);
 
       const { data: allRows, error } = await supabase
-        .from('mdr_tracking')
+        .from('mdr_tracking_tbk')
         .select(
           'id, doc_status, status_sm1, status_sm4, status_cs1, status_cs4, status_mw, status_pe'
         );
@@ -677,7 +677,7 @@ export default function BUSH4() {
 
         if (newPE !== row.status_pe) {
           const { error: updateError } = await supabase
-            .from('mdr_tracking')
+            .from('mdr_tracking_tbk')
             .update({ status_pe: newPE })
             .eq('id', row.id);
 

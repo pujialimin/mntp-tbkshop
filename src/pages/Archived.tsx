@@ -294,7 +294,7 @@ export default function BUSH4() {
         );
 
         const { error: deleteError } = await supabase
-          .from('mdr_tracking')
+          .from('mdr_tracking_tbk')
           .delete()
           .in('id', selectedRows);
 
@@ -359,7 +359,7 @@ export default function BUSH4() {
   useEffect(() => {
     const fetchData = async () => {
       const { data, error } = await supabase
-        .from('mdr_tracking')
+        .from('mdr_tracking_tbk')
         .select('*')
         .eq('archived', true)
         .order('date_in', { ascending: false });
@@ -378,7 +378,7 @@ export default function BUSH4() {
     if (field !== 'archived') return; // hanya izinkan update kolom 'archived'
 
     const { error } = await supabase
-      .from('mdr_tracking')
+      .from('mdr_tracking_tbk')
       .update({ [field]: value })
       .eq('id', id);
 

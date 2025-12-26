@@ -414,7 +414,7 @@ export default function BUSH4() {
 
       while (moreData) {
         const { data, error } = await supabase
-          .from('mdr_tracking')
+          .from('mdr_tracking_tbk')
           .select('*')
           .eq('archived', false)
           .order('date_in', { ascending: false })
