@@ -91,6 +91,7 @@ const COLUMN_ORDER: { key: string; label: string }[] = [
   { key: 'cek_cs1', label: 'Composite' },
   { key: 'other', label: 'Machining' },
   { key: 'nd', label: 'NDT' },
+  { key: 'tjo', label: 'TJO' },
   { key: 'status_job', label: 'Status Job' },
 
   { key: 'tracking_sp', label: 'Tracking SP' },
@@ -1131,7 +1132,7 @@ export default function BUSH4() {
                         </span>
                       ) : key === 'no' ? (
                         (currentPage - 1) * rowsPerPage + rowIndex + 1
-                      ) : key === 'description' || key === 'ac_reg' ? (
+                      ) : key === 'description' || key === 'ac_reg'  ||  key === 'tracking_sp' ? (
                         editingCell?.id === row.id &&
                         editingCell?.field === key ? (
                           <input
