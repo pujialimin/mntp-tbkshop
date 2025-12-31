@@ -90,6 +90,8 @@ const COLUMN_ORDER: { key: string; label: string }[] = [
   { key: 'cek_sm1', label: 'Sheetmetal' },
   { key: 'cek_cs1', label: 'Composite' },
   { key: 'other', label: 'Machining' },
+  { key: 'status_mw', label: 'TCS' },
+ 
   { key: 'nd', label: 'NDT' },
   { key: 'tjo', label: 'TJO' },
   { key: 'status_job', label: 'Status Job' },
